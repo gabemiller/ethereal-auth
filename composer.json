@@ -1,0 +1,14 @@
+{
+    "name": "gabemiller/ethereal-auth",
+    "description": "This is a small auth package for Ethereal CMS, based on Laravel 5.1",
+    "require": {
+        "php": ">=5.5.9",
+        "illuminate/support": "5.1.*"
+    },
+    "authors": [
+        {
+            "name": "Gabor Molnar",
+            "email": "gabormolnar92@gmail.com"
+        }
+    ]
+}
