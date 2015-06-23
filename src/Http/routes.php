@@ -6,6 +6,6 @@
  * Time: 19:03
  */
 
-Route::get('belepes','EAuthController@getLogin');
+Route::get('belepes','Ethereal\Auth\Controllers\EAuthController@getLogin');
 
-Route::get('regisztracio','EAuthController@getRegister');
+Route::get('regisztracio','Ethereal\Auth\Controllers\EAuthController@getRegister');
