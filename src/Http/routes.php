@@ -8,6 +8,8 @@
 
 Route::group(['namespace' => 'Ethereal\Auth\Controllers'], function () {
 
+    Route::get('admin', 'EAuthController@getAdminLogin');
+
     Route::get(trans('ethereal-auth::routes.admin-login'), 'EAuthController@getAdminLogin');
 
     Route::get(trans('ethereal-auth::routes.login'), 'EAuthController@getLogin');

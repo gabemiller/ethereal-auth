@@ -5,7 +5,7 @@
 @section('content')
 
     <h1>{{trans('ethereal-auth::routes.admin-login')}}</h1>
-    
+
     <form method="POST" action="/auth/login">
         {!! csrf_field() !!}
 
