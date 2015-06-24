@@ -47,6 +47,16 @@ class EAuthController extends Controller
         }
     }
 
+
+    /**
+     * Let the user log out.
+     *
+     * @param Request $request
+     */
+    public function postLogout(Request $request){
+
+    }
+
     /**
      * Get the default registration page.
      *

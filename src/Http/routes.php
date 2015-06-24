@@ -8,15 +8,15 @@
 
 Route::group(['namespace' => 'Ethereal\Auth\Controllers'], function () {
 
-    Route::get('/admin/bejelentkezes', 'EAuthController@getAdminLogin');
+    Route::get(trans('ethereal-auth::routes.admin-login'), 'EAuthController@getAdminLogin');
 
-    Route::get('/bejelentkezes', 'EAuthController@getLogin');
+    Route::get(trans('ethereal-auth::routes.login'), 'EAuthController@getLogin');
 
-    Route::post('/bejelentkezes', 'EAuthController@postLogin');
+    Route::post(trans('ethereal-auth::routes.login'), 'EAuthController@postLogin');
 
-    Route::get('/regisztracio', 'EAuthController@getRegister');
+    Route::get(trans('ethereal-auth::routes.signup'), 'EAuthController@getRegister');
 
-    Route::post('/regisztracio', 'EAuthController@postRegister');
+    Route::post(trans('ethereal-auth::routes.signup'), 'EAuthController@postRegister');
 
 });
 
