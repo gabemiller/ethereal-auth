@@ -16,17 +16,44 @@ class EAuthController extends Controller
 {
 
     /**
+     * Get the default login page.
+     *
      * @return mixed
      */
     public function getLogin()
     {
-        return view('ethereal-auth::login');
+        return view('ethereal-auth::site.login');
     }
 
     /**
+     * Get the default adminlogin page.
+     *
      * @return mixed
      */
-    public function getRegister(){
-        return view('ethereal-auth::register');
+    public function getAdminLogin()
+    {
+        return view('ethereal-auth::admin.login');
+    }
+
+    /**
+     * Let the user log in.
+     *
+     * @param Request $request
+     */
+    public function postLogin(Request $request)
+    {
+        if ($request->auth()) {
+
+        }
+    }
+
+    /**
+     * Get the default registration page.
+     *
+     * @return mixed
+     */
+    public function getRegister()
+    {
+        return view('ethereal-auth::site.register');
     }
 }

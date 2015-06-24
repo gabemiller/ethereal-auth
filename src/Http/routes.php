@@ -6,6 +6,17 @@
  * Time: 19:03
  */
 
-Route::get('belepes','Ethereal\Auth\Controllers\EAuthController@getLogin');
+Route::group(['namespace' => 'Ethereal\Auth\Controllers'], function () {
 
-Route::get('regisztracio','Ethereal\Auth\Controllers\EAuthController@getRegister');
+    Route::get('/admin/bejelentkezes', 'EAuthController@getAdminLogin');
+
+    Route::get('/bejelentkezes', 'EAuthController@getLogin');
+
+    Route::post('/bejelentkezes', 'EAuthController@postLogin');
+
+    Route::get('/regisztracio', 'EAuthController@getRegister');
+
+    Route::post('/regisztracio', 'EAuthController@postRegister');
+
+});
+
