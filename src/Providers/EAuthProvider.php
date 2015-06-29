@@ -43,7 +43,10 @@ class EAuthProvider extends ServiceProvider
     public function boot()
     {
 
-
+        /**
+         * Package translations
+         */
+        $this->loadTranslationsFrom(__DIR__ . '/../../resources/lang', 'ethereal-auth');
 
         /**
          * Package routes
@@ -60,11 +63,6 @@ class EAuthProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/../../resources/views' => base_path('resources/views/vendor/ethereal-auth'),
         ],'views');
-
-        /**
-         * Package translations
-         */
-        $this->loadTranslationsFrom(__DIR__ . '/../../resources/lang', 'ethereal-auth');
 
         /**
          * Package config
