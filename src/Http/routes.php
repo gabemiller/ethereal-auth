@@ -44,5 +44,9 @@ Route::group(['namespace' => 'Ethereal\Auth\Controllers'], function () {
     Route::post(trans('ethereal-auth::routes.signup'),
         ['as'=>'signupPost','uses'=>'AuthController@postRegister']);
 
+
+    Route::get('test-local',function(){
+       return "siker";
+    });
 });
 
