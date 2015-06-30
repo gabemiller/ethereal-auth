@@ -8,17 +8,41 @@
 
 Route::group(['namespace' => 'Ethereal\Auth\Controllers'], function () {
 
-    Route::get('admin', 'EAuthController@getAdminLogin');
+    /**
+     * Get admin login view.
+     */
+    Route::get(trans('ethereal-auth::routes.adminLogin'),
+        ['as'=>'adminLogin', 'uses'=>'AuthController@getAdminLogin']);
 
-    Route::get(trans('ethereal-auth::routes.admin-login'), 'EAuthController@getAdminLogin');
+    /**
+     * Get site login view.
+     */
+    Route::get(trans('ethereal-auth::routes.login'),
+        ['as'=>'loginGet','uses'=>'AuthController@getLogin']);
 
-    Route::get(trans('ethereal-auth::routes.login'), 'EAuthController@getLogin');
+    /**
+     * Post all logins.
+     */
+    Route::post(trans('ethereal-auth::routes.login'),
+        ['as'=>'loginPost','uses'=>'AuthController@postLogin']);
 
-    Route::post(trans('ethereal-auth::routes.login'), 'EAuthController@postLogin');
+    /**
+     * Post all logouts.
+     */
+    Route::get(trans('ethereal-auth::routes.logout'),
+        ['as'=>'logoutGet','uses'=>'AuthController@getLogout']);
 
-    Route::get(trans('ethereal-auth::routes.signup'), 'EAuthController@getRegister');
+    /**
+     * Get site sign up view.
+     */
+    Route::get(trans('ethereal-auth::routes.signup'),
+        ['as'=>'signupGet','uses'=>'AuthController@getRegister']);
 
-    Route::post(trans('ethereal-auth::routes.signup'), 'EAuthController@postRegister');
+    /**
+     * Post all sign ups.
+     */
+    Route::post(trans('ethereal-auth::routes.signup'),
+        ['as'=>'signupPost','uses'=>'AuthController@postRegister']);
 
 });
 

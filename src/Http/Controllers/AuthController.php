@@ -12,7 +12,7 @@ namespace Ethereal\Auth\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
-class EAuthController extends Controller
+class AuthController extends Controller
 {
 
     /**
@@ -62,8 +62,8 @@ class EAuthController extends Controller
      *
      * @return mixed
      */
-    public function getRegister()
+    public function getSignup()
     {
-        return view('ethereal-auth::site.register');
+        return view('ethereal-auth::site.signup');
     }
 }

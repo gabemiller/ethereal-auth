@@ -3,7 +3,7 @@
 @section('title', 'Regisztráció')
 
 @section('content')
-    <form method="POST" action="/auth/register">
+    <form method="POST" action="{{route('signupPost')}}">
         {!! csrf_field() !!}
 
         <div class="col-md-6">

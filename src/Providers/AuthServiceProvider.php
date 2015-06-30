@@ -8,11 +8,9 @@
 
 namespace Ethereal\Auth\Providers;
 
-
-use Ethereal\Auth\User;
 use Illuminate\Support\ServiceProvider;
 
-class EAuthProvider extends ServiceProvider
+class AuthServiceProvider extends ServiceProvider
 {
 
     /**
@@ -22,17 +20,13 @@ class EAuthProvider extends ServiceProvider
      */
     public function register()
     {
-
-        $this->app->singleton('Ethereal\Auth\User', function ($app) {
-            return new User;
-        });
-
         /**
          * Package merge config
          */
         $this->mergeConfigFrom(
             __DIR__.'/../../config/ethereal-auth.php', 'ethereal-auth'
         );
+
     }
 
     /**
@@ -70,12 +64,5 @@ class EAuthProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../../config/ethereal-auth.php' => config_path('ethereal-auth.php'),
         ],'config');
-
-        /**
-         * Package migrations
-         */
-        $this->publishes([
-            __DIR__.'/../../database/migrations/' => database_path('/migrations')
-        ], 'migrations');
     }
 }

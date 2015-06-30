@@ -7,7 +7,7 @@
  */
 
 return [
-    'admin-login' => '/admin/bejelentkezes',
+    'adminLogin' => '/admin/bejelentkezes',
     'login' => 'bejelentkezes',
     'signup' => 'regisztracio',
 ];

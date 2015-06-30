@@ -4,9 +4,8 @@
 
 @section('content')
 
-    <h1>{{Lang::get('ethereal-auth::routes.admin-login')}}</h1>
 
-    <form method="POST" action="/auth/login">
+    <form method="POST" action="{{route('loginPost')}}">
         {!! csrf_field() !!}
 
         <div>
