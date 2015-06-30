@@ -42,9 +42,7 @@ class AuthController extends Controller
      */
     public function postLogin(Request $request)
     {
-        if ($request->auth()) {
-
-        }
+        return "Sikeres bejelentkezés";
     }
 
 
@@ -53,8 +51,9 @@ class AuthController extends Controller
      *
      * @param Request $request
      */
-    public function postLogout(Request $request){
-
+    public function postLogout(Request $request)
+    {
+        return "Sikeres kijelentkezés";
     }
 
     /**

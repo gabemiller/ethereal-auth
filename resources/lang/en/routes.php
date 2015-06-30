@@ -9,5 +9,6 @@
 return [
     'adminLogin' => '/admin/login',
     'login' => 'login',
+    'logout' => 'logout',
     'signup' => 'signup',
 ];

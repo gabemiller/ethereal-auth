@@ -9,5 +9,6 @@
 return [
     'adminLogin' => '/admin/bejelentkezes',
     'login' => 'bejelentkezes',
+    'logout' => 'kijelentkezes',
     'signup' => 'regisztracio',
 ];
