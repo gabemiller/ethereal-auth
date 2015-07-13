@@ -58,7 +58,7 @@ class AuthController extends Controller
      *
      * @param Request $request
      */
-    public function postLogout(Request $request)
+    public function postLogout()
     {
         Auth::logout();
         return "Sikeres kijelentkezés";
@@ -79,14 +79,24 @@ class AuthController extends Controller
      *
      * @return boolean
      */
-    public function postSignup(){
+    public function postSignup(Request $request)
+    {
 
+        // Create new user object
         $user = new User;
 
-        $user->name = Input::get('name');
-        $user->email = Input::get('email');
-        $user->password = Hash::make(Input::get('password'));
+        // Fill the user object with posted data
+        $user->fill([
+            'name' => $request->get('name'),
+            'email' => $request->get('email'),
+            'password' => Hash::make($request->get('password'))
+        ]);
 
-       return $user->save();
+        if ($user->save()) {
+            return "Sikeres regisztráció";
+        } else {
+            return "Sikertelen regisztráció";
+        }
+
     }
 }
