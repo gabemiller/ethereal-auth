@@ -36,13 +36,13 @@ Route::group(['namespace' => 'Ethereal\Auth\Controllers'], function () {
      * Get site sign up view.
      */
     Route::get(trans('ethereal-auth::routes.signup'),
-        ['as'=>'signupGet','uses'=>'AuthController@getRegister']);
+        ['as'=>'signupGet','uses'=>'AuthController@getSignup']);
 
     /**
      * Post all sign ups.
      */
     Route::post(trans('ethereal-auth::routes.signup'),
-        ['as'=>'signupPost','uses'=>'AuthController@postRegister']);
+        ['as'=>'signupPost','uses'=>'AuthController@postSignup']);
 
 });
 
