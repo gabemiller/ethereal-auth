@@ -37,7 +37,7 @@ class RoleMiddleware
     public function handle($request, Closure $next, $role)
     {
 
-        if (false) {
+        if (true) {
             if ($request->ajax()) {
                 return response('Nincs jogosultság', 403);
             } else {

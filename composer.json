@@ -4,7 +4,7 @@
   "repositories": [
     {
       "type": "git",
-      "url": "https://github.com/gabemiller/ethereal-user.git"
+      "url": "C:\\wamp\\www\\laravel\\packages\\ethereal-user"
     }
   ],
   "require": {

@@ -1,4 +1,4 @@
-@extends('default.site.master')
+@extends(Config::get('ethereal-auth::site'))
 
 @section('title', 'Bejelentkezés')
 

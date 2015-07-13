@@ -1,4 +1,4 @@
-@extends('default.admin.master')
+@extends(Config::get('ethereal-auth::admin'))
 
 @section('title', 'Admin Bejelentkezés')
 
