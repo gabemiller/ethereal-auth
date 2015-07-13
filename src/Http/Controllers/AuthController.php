@@ -9,8 +9,12 @@
 namespace Ethereal\Auth\Controllers;
 
 
+use Ethereal\User\User;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Input;
 
 class AuthController extends Controller
 {
@@ -42,7 +46,10 @@ class AuthController extends Controller
      */
     public function postLogin(Request $request)
     {
-        return "Sikeres bejelentkezés";
+        if (Auth::attempt(['email' => $request->get('email'), 'password' => $request->get('password')])) {
+            return "Sikeres bejelentkezés";
+        }
+        return "Sikertelen bejelentkezés";
     }
 
 
@@ -53,6 +60,7 @@ class AuthController extends Controller
      */
     public function postLogout(Request $request)
     {
+        Auth::logout();
         return "Sikeres kijelentkezés";
     }
 
@@ -64,5 +72,21 @@ class AuthController extends Controller
     public function getSignup()
     {
         return view('ethereal-auth::site.signup');
+    }
+
+    /**
+     * Let the guest sign up to the app.
+     *
+     * @return boolean
+     */
+    public function postSignup(){
+
+        $user = new User;
+
+        $user->name = Input::get('name');
+        $user->email = Input::get('email');
+        $user->password = Hash::make(Input::get('password'));
+
+       return $user->save();
     }
 }
