@@ -1,27 +1,24 @@
 @extends(Config::get('ethereal-auth::site'))
 
-@section('title', 'Bejelentkezés')
+@section('title', lang('ethereal-auth::forms.login_title'))
 
 @section('content')
     <form method="POST" action="{{route('loginPost')}}">
         {!! csrf_field() !!}
 
-        <div>
-            Email
-            <input type="email" name="email" value="{{ old('email') }}">
+        <div class="form-group">
+            <label for="email">{{lang('ethereal-auth::forms.email')}}</label>
+            <input id="email" class="form-control" name="email" type="email" placeholder="{{lang('ethereal-auth::forms.email')}}" value="{{ old('email') }}">
         </div>
-
-        <div>
-            Password
-            <input type="password" name="password" id="password">
+        <div class="form-group">
+            <label for="password">{{lang('ethereal-auth::forms.password')}}</label>
+            <input id="password" class="form-control" name="password" type="password" placeholder="{{lang('ethereal-auth::forms.password')}}">
         </div>
-
-        <div>
-            <input type="checkbox" name="remember"> Remember Me
+        <div class="checkbox">
+            <label>
+                <input type="checkbox"> {{lang('ethereal-auth::forms.remember_me')}}
+            </label>
         </div>
-
-        <div>
-            <button type="submit">Login</button>
-        </div>
+        <button type="submit" class="btn btn-default">{{lang('ethereal-auth::forms.login')}}</button>
     </form>
 @endsection

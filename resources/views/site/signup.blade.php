@@ -1,33 +1,28 @@
 @extends(Config::get('ethereal-auth::site'))
 
-@section('title', 'Regisztráció')
+@section('title', lang('ethereal-auth::forms.signup_title'))
 
 @section('content')
+
     <form method="POST" action="{{route('signupPost')}}">
         {!! csrf_field() !!}
 
-        <div class="col-md-6">
-            Name
-            <input type="text" name="name" value="{{ old('name') }}">
+        <div class="form-group">
+            <label for="name">{{lang('ethereal-auth::forms.name')}}</label>
+            <input id="name" class="form-control" name="name" type="text" placeholder="{{lang('ethereal-auth::forms.name')}}" value="{{ old('name') }}">
         </div>
-
-        <div>
-            Email
-            <input type="email" name="email" value="{{ old('email') }}">
+        <div class="form-group">
+            <label for="email">{{lang('ethereal-auth::forms.email')}}</label>
+            <input id="email" class="form-control" name="email" type="email" placeholder="{{lang('ethereal-auth::forms.email')}}" value="{{ old('email') }}">
         </div>
-
-        <div>
-            Password
-            <input type="password" name="password">
+        <div class="form-group">
+            <label for="password">{{lang('ethereal-auth::forms.password')}}</label>
+            <input id="password" class="form-control" name="password" type="password" placeholder="{{lang('ethereal-auth::forms.password')}}">
         </div>
-
-        <div class="col-md-6">
-            Confirm Password
-            <input type="password" name="password_confirmation">
+        <div class="form-group">
+            <label for="password_confirm">{{lang('ethereal-auth::forms.confirm_password')}}</label>
+            <input id="password_confirm" class="form-control" name="password_confirm" type="password" placeholder="{{lang('ethereal-auth::forms.confirm_password')}}">
         </div>
-
-        <div>
-            <button type="submit">Register</button>
-        </div>
+        <button type="submit" class="btn btn-default">{{lang('ethereal-auth::forms.signup')}}</button>
     </form>
 @endsection
