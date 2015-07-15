@@ -1,4 +1,4 @@
-@extends(Config::get('ethereal-auth::site'))
+@extends(config('ethereal-auth.site'))
 
 @section('title', trans('ethereal-auth::forms.login_title'))
 
