@@ -1,19 +1,20 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Gábor
+ * User: GÃ¡bor
  * Date: 2015.07.14.
  * Time: 21:48
  */
 
 return [
-    'name' => 'Név',
+    'name' => 'NÃ©v',
     'email' => 'Email',
-    'password' => 'Jelszó',
-    'confirm_password' => 'Jelszó megerõsítése',
-    'login' => 'Bejelentkezés',
-    'signup' => 'Regisztráció',
-    'remember_me' => 'Emlékezz rám',
-    'singup_title' => 'Regisztráció',
-    'login_title' => 'Bejelentkezés',
+    'password' => 'JelszÃ³',
+    'confirm_password' => 'JelszÃ³ megerÅ‘sÃ­tÃ©se',
+    'login' => 'BejelentkezÃ©s',
+    'signup' => 'RegisztrÃ¡ciÃ³',
+    'remember_me' => 'EmlÃ©kezz rÃ¡m',
+    'singup_title' => 'RegisztrÃ¡ciÃ³',
+    'login_title' => 'BejelentkezÃ©s',
+
 ];
