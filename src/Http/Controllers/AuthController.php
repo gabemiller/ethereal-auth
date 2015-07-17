@@ -46,10 +46,35 @@ class AuthController extends Controller
      */
     public function postLogin(Request $request)
     {
-        if (Auth::attempt(['email' => $request->get('email'), 'password' => $request->get('password')])) {
-            return "Sikeres bejelentkezés";
+        // Validate the inputs
+        $validator = Validator::make($request->all(),
+            config('ethereal-auth::loginValidation'));
+
+        // Check if the validation fails or not
+        if ($validator->fails()) {
+            return back()
+                ->withErrors($validator)
+                ->withInput();
         }
-        return "Sikertelen bejelentkezés";
+
+        // Get datas from inputs
+        $email = $request->get('email');
+        $password = $request->get('password');
+        $remember_me = $request->has('remember_me');
+
+        // Log in the user with the inputs
+        if (Auth::attempt(['email' => $email, 'password' => $password, 'active' => 1], $remember_me)) {
+
+            // Check the user is admin or not
+            if (Auth::user()->isAdmin()) {
+                return redirect()->intended('dashboard');
+            } else {
+                return redirect()->intended('home');
+            }
+        }
+
+        // Unsuccessful log in
+        return back()->withErrors('Hiba történt')->withInput();
     }
 
 
@@ -60,8 +85,18 @@ class AuthController extends Controller
      */
     public function postLogout()
     {
+        // Get the authenticated user
+        $user = Auth::user();
+
+        // Log out the user
         Auth::logout();
-        return "Sikeres kijelentkezés";
+
+        // Take back the user where he/she came from
+        if ($user->isAdmin()) {
+            return redirect()->intended('admin.login');
+        } else {
+            return redirect()->intended('home');
+        }
     }
 
     /**
@@ -82,6 +117,17 @@ class AuthController extends Controller
     public function postSignup(Request $request)
     {
 
+        // Validate the inputs
+        $validator = Validator::make($request->all(),
+            config('ethereal-auth::signupValidation'));
+
+        // Check if validation fails or not
+        if ($validator->fails()) {
+            return back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
         // Create new user object
         $user = new User;
 
@@ -92,6 +138,7 @@ class AuthController extends Controller
             'password' => Hash::make($request->get('password'))
         ]);
 
+        // Save the user in the DB
         if ($user->save()) {
             return "Sikeres regisztráció";
         } else {

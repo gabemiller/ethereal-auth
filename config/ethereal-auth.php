@@ -29,4 +29,34 @@ return [
     */
 
     'admin' =>  'default.admin.master',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Sign up validation rules
+    |--------------------------------------------------------------------------
+    |
+    | This is the rule array of sign up validation.
+    |
+    */
+
+    'signupValidation' => [
+        'name' => 'required|alpha',
+        'email' => 'required|email|unique:users,email',
+        'password' => 'required|confirmed',
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Log in validation rules
+    |--------------------------------------------------------------------------
+    |
+    | This is the rule array of log in validation.
+    |
+    */
+
+    'loginValidation' => [
+        'email' => 'required',
+        'password' => 'required',
+    ]
+
 ];

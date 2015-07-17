@@ -3,7 +3,7 @@
 @section('title', trans('ethereal-auth::forms.login_title'))
 
 @section('content')
-    <form method="POST" action="{{route('loginPost')}}">
+    <form method="POST" action="{{route('login.post')}}">
         {!! csrf_field() !!}
 
         <div class="form-group">

@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <form method="POST" action="{{route('signupPost')}}">
+    <form method="POST" action="{{route('signup.post')}}">
         {!! csrf_field() !!}
 
         <div class="form-group">
@@ -20,8 +20,8 @@
             <input id="password" class="form-control" name="password" type="password" placeholder="{{trans('ethereal-auth::forms.password')}}">
         </div>
         <div class="form-group">
-            <label for="password_confirm">{{trans('ethereal-auth::forms.confirm_password')}}</label>
-            <input id="password_confirm" class="form-control" name="password_confirm" type="password" placeholder="{{trans('ethereal-auth::forms.confirm_password')}}">
+            <label for="password_confirmation">{{trans('ethereal-auth::forms.confirm_password')}}</label>
+            <input id="password_confirmation" class="form-control" name="password_confirmation" type="password" placeholder="{{trans('ethereal-auth::forms.confirm_password')}}">
         </div>
         <button type="submit" class="btn btn-default">{{trans('ethereal-auth::forms.signup')}}</button>
     </form>

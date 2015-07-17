@@ -1,5 +1,5 @@
 # ethereal-auth
-Test package
+Ethereal CMS authentication package based on Laravel 5 Auth.
 
 ## Service provider
 
@@ -14,5 +14,4 @@ This should be added to Kernel.php.
 ```php
 'auth' => \Ethereal\Auth\Middleware\AuthMiddleware::class,
 'guest' => \Ethereal\Auth\Middleware\GuestMiddleware::class,
-'role' => \Ethereal\Auth\Middleware\RoleMiddleware::class,
 ```

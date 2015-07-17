@@ -42,25 +42,12 @@ class AuthMiddleware
     {
         // Check the user is logged in
         if ($this->auth->guest()) {
-
-            // Check the request is ajax or not
-            if ($request->ajax()) {
-                return response('Unauthorized.', 401);
-            } else {
-                return redirect()->guest('auth/login');
-            }
+            return redirect()->guest('auth/login');
         }
 
         // Check the user has the role or not
         if (isset($role) && !$this->auth->user()->hasRole($role)) {
-
-            // Check the request is ajax or not
-            if ($request->ajax()) {
-                return response('Nincs jogosultság', 403);
-            } else {
-                return back();
-            }
-
+            abort(403);
         }
 
         return $next($request);

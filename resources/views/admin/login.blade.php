@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <form method="POST" action="{{route('loginPost')}}">
+    <form method="POST" action="{{route('login.post')}}">
         {!! csrf_field() !!}
 
         <div class="form-group">
