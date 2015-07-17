@@ -38,7 +38,7 @@ class AuthMiddleware
      * @param  \Closure $next
      * @return mixed
      */
-    public function handle($request, Closure $next, $role)
+    public function handle($request, Closure $next, $role = null)
     {
         // Check the user is logged in
         if ($this->auth->guest()) {
