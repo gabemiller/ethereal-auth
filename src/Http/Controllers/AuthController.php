@@ -49,7 +49,7 @@ class AuthController extends Controller
     {
         // Validate the inputs
         $validator = Validator::make($request->all(),
-            config('ethereal-auth::loginValidation'));
+            config('ethereal-auth.loginValidation'));
 
         // Check if the validation fails or not
         if ($validator->fails()) {
@@ -120,7 +120,7 @@ class AuthController extends Controller
 
         // Validate the inputs
         $validator = Validator::make($request->all(),
-            config('ethereal-auth::signupValidation'));
+            config('ethereal-auth.signupValidation'));
 
         // Check if validation fails or not
         if ($validator->fails()) {
