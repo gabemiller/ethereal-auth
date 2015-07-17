@@ -3,6 +3,8 @@
 @section('title', trans('ethereal-auth::forms.login_title'))
 
 @section('content')
+
+    @include('_partials.message')
     <form method="POST" action="{{route('login.post')}}">
         {!! csrf_field() !!}
 

@@ -4,6 +4,7 @@
 
 @section('content')
 
+    @include('_partials.message')
     <form method="POST" action="{{route('login.post')}}">
         {!! csrf_field() !!}
 
