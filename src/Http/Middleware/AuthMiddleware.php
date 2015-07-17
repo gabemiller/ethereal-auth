@@ -38,7 +38,7 @@ class AuthMiddleware
      * @param  \Closure $next
      * @return mixed
      */
-    public function handle($request, Closure $next, $role = null)
+    public function handle($request, Closure $next, $role = 'users')
     {
         // Check the user is logged in
         if ($this->auth->guest()) {
@@ -46,7 +46,7 @@ class AuthMiddleware
         }
 
         // Check the user has the role or not
-        if (isset($role) && !$this->auth->user()->hasRole($role)) {
+        if (!$this->auth->user()->hasRole($role)) {
             abort(403);
         }
 
