@@ -4,7 +4,7 @@
 
 @section('content')
 
-    @include('_partials.message')
+    @include('ethereal-auth::_partials.message')
     <form method="POST" action="{{route('login.post')}}">
         {!! csrf_field() !!}
 
