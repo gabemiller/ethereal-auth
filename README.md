@@ -15,3 +15,11 @@ This should be added to Kernel.php.
 'auth' => \Ethereal\Auth\Middleware\AuthMiddleware::class,
 'guest' => \Ethereal\Auth\Middleware\GuestMiddleware::class,
 ```
+
+## Roles
+
+
+
+- user [-1,0,1]
+- admin [-1,0,1]
+- blog [-1,0,1]
